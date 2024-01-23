@@ -4,6 +4,8 @@ from PySimpleGUI import WIN_CLOSED
 import json
 from make_windows import main_menu, playlist_setup
 
+#TODO Write a CRUD for managing Mood, Track, and Association
+
 class Muplayer:
     def __init__(self, font = ('helvetica', 12), button_size = (8, 2), window_size = (600, 400)):
         self.font = font
@@ -21,7 +23,8 @@ class Muplayer:
             layout = main_menu()
         self.window = Window('Muplayer', layout, font = self.font , size = self.window_size, use_custom_titlebar = True)
 
-
+    #TODO replace both of these functions with a call to a sqlite database.
+        #Basically, 
     def read_playlists(self):
         try:
             with open('playlists.json', 'r') as fh:
