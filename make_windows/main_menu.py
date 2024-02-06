@@ -24,12 +24,12 @@ def layout_playlists(playlists, size, button_size = (8, 2)):
 
     return additional_rows
 
-def main_menu(*playlists, current_song = 'None', current_playlist = 'None', button_size = (8, 2), max_elements = 4):
+def mw_main_menu(*playlists, current_song = 'None', current_playlist = 'None', button_size = (8, 2), max_elements = 4):
 
     row_playlist = [Text(f'Playlist: {current_playlist}'), Push()]
     row_song = [Text(f'Track: {current_song}'), Push()]
     row_controls = [Button('Play/Pause'), Button('Pick Track')]
-    row_config = [Button('Setup', size = button_size), Push(), Button('Assign', size = button_size)]
+    row_config = [Button('Setup', key='Menu Playlists', size = button_size), Push(), Button('Assign', size = button_size)]
     row_divider = [Push(), Text('~~~PUSH BUTTONS BELOW TO CHANGE MUSIC~~~'), Push()]
     rows = [row_playlist, row_song, row_controls, row_config, row_divider]
 

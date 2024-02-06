@@ -1,3 +1,7 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from ..main import Muplayer
 from PySimpleGUI import T, B, P, Window
 from shared_utils import chunkit
 
@@ -16,7 +20,7 @@ def finalize(base_rows, playlists, size = 6):
         return base_rows
 
 
-def playlist_setup(mp):
+def mw_playlist_manage(mp: Muplayer):
     mp.window.close()
     rows = [
         [P(), B('New Playlist'), B('Rename Playlist'), B('Delete Playlist'), P()],

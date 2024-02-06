@@ -1,0 +1,13 @@
+Each function inside of the make_windows file should use the Main Program class to make the window.
+This should cut down on how complicated the Main Loop has to be.  Nut it will make it ugly.
+
+every make_windows file shoudl contain
+
+from __future__ import annotations
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from ..main import Muplayer
+
+This enables type hinting wihtout circular imports.
+
+Use Keys on buttons only when the behavior is shared or confusing
