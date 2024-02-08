@@ -55,6 +55,9 @@ while True:
                 break
             else:
                 print(event)
+#TODO start fleshing out the behavior in this.....  Ugly, ugly...  Ugly and massive case list.
+#Should probably make every menu option a case and then like, I don't know, make the else case a Selector for the playlists?
+#That could work, you just need to remember that every Case must not be dynamic
 
 
 mp.window.close()

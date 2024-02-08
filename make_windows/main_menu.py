@@ -8,6 +8,7 @@ from sql_database import get_moods
 from .window_utils import layout_playlists
 
 
+#TODO Mimic the form of playlist_manage, it looks cleaner to me.
 def mw_main_menu(mp: Muplayer, current_song = 'None', current_playlist = 'None', button_size = (8, 2), max_elements = 4):
     row_playlist = [Text(f'Playlist: {current_playlist}'), Push()]
     row_song = [Text(f'Track: {current_song}'), Push()]
