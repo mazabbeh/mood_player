@@ -27,14 +27,6 @@ class Muplayer:
         create(playlist, reraise=True)
 
 
-    # def initial_window(self):
-    #     if playlists := get_moods(logger):
-    #         layout = mw_main_menu(*playlists)
-    #     else:
-    #         layout = mw_main_menu()
-    #     self.window = Window('Muplayer', layout, font = self.font , size = self.window_size, use_custom_titlebar = True)
-
-
 mp = Muplayer()
 
 
