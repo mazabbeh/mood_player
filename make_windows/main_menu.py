@@ -12,7 +12,7 @@ def mw_main_menu(mp: Muplayer, current_track = 'None', current_playlist = 'None'
     base = [
         [T('Playlist: '), T(f'{current_playlist}', key='Current Playlist'), P()],
         [T('Track: '), T(f'{current_track}', key='Current Track'), P()],
-        [B('Play/Pause'), B('Pick Track')],
+        [B('Play/Pause'), B('Shuffle'), B('Loop')],
         [B('Setup', key='Menu Playlists', size=btn_size), P(), B('Assign', key='Menu Assignment', size=btn_size)],
         [P(), T('~~~PUSH BUTTONS BELOW TO CHANGE MOOD~~~'), P()]
     ]

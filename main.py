@@ -33,8 +33,15 @@ mp = Muplayer()
 while True:
     event, value = mp.window.read()
     match event:
+        #Main Menu Stuff
         case 'Menu Main':
             mw_main_menu(mp)
+        case 'Play/Pause':
+            print('TOGGLE MUSIC PLAYING')
+        case 'Shuffle':
+            print('TOGGLE SHUFFLE MODE')
+        case 'Loop':
+            print('TOGGLE LOOP MODE')
         #Manage Playlists Menu
         case 'Menu Playlists':
             mw_playlist_manage(mp)
@@ -53,8 +60,9 @@ while True:
         case _:
             if event == WIN_CLOSED:
                 break
-            else:
-                print(event)
+            elif event.startswith('PLST:'):
+                playlist = event
+                print(playlist)
 #TODO start fleshing out the behavior in this.....  Ugly, ugly...  Ugly and massive case list.
 #Should probably make every menu option a case and then like, I don't know, make the else case a Selector for the playlists?
 #That could work, you just need to remember that every Case must not be dynamic

@@ -11,7 +11,7 @@ def layout_playlists(layout: list, playlists, size, button_size = (8, 2)):
             buttons.append(Push())
 
         for playlist in group:
-            button = Button(button_text = playlist, size = button_size)
+            button = Button(button_text = playlist, size = button_size, key=f'PLST:{playlist}')
             buttons.append(button)
         additional_rows.append(buttons)
         if i % 2 == 1:
