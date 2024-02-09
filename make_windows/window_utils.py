@@ -2,9 +2,9 @@ from shared_utils import chunkit, gimme_a_squiggly
 from PySimpleGUI import Push, Text, Button
 
 
-def layout_playlists(layout: list, size, button_size = (8, 2)):
+def layout_playlists(layout: list, playlists, size, button_size = (8, 2)):
     additional_rows = []
-    for i, group in enumerate(chunkit(layout, size)):
+    for i, group in enumerate(chunkit(playlists, size)):
         buttons = []
         buttons.append(Text(gimme_a_squiggly(i)))
         if i % 2 == 0:

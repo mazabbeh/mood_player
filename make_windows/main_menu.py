@@ -17,6 +17,6 @@ def mw_main_menu(mp: Muplayer, current_track = 'None', current_playlist = 'None'
         [P(), T('~~~PUSH BUTTONS BELOW TO CHANGE MOOD~~~'), P()]
     ]
 
-    layout = (layout_playlists(base, max_elements))
+    layout = (layout_playlists(base, get_moods(), max_elements))
 
     mp.window = Window('Setup Playlists', layout, font = mp.font, size = mp.window_size, use_custom_titlebar = True)

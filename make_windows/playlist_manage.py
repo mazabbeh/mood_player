@@ -17,6 +17,6 @@ def mw_playlist_manage(mp: Muplayer, max_elements = 4):
         [P(), T('Playlists'), P()]
     ]
 
-    layout = layout_playlists(base, max_elements)
+    layout = (layout_playlists(base, get_moods(), max_elements))
 
     mp.window = Window('Setup Playlists', layout, font = mp.font, size = mp.window_size, use_custom_titlebar = True)
