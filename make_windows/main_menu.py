@@ -3,22 +3,20 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from ..main import Muplayer
 
-from PySimpleGUI import Text, Button, Push, Window
+from PySimpleGUI import T, B, P, Window
 from sql_database import get_moods
 from .window_utils import layout_playlists
 
 
-#TODO Mimic the form of playlist_manage, it looks cleaner to me.
-def mw_main_menu(mp: Muplayer, current_song = 'None', current_playlist = 'None', button_size = (8, 2), max_elements = 4):
-    row_playlist = [Text(f'Playlist: {current_playlist}'), Push()]
-    row_song = [Text(f'Track: {current_song}'), Push()]
-    row_controls = [Button('Play/Pause'), Button('Pick Track')]
-    row_config = [Button('Setup', key='Menu Playlists', size = button_size), Push(), Button('Assign', size = button_size)]
-    row_divider = [Push(), Text('~~~PUSH BUTTONS BELOW TO CHANGE MUSIC~~~'), Push()]
-    layout = [row_playlist, row_song, row_controls, row_config, row_divider]
+def mw_main_menu(mp: Muplayer, current_track = 'None', current_playlist = 'None', btn_size = (8, 2), max_elements = 4):
+    base = [
+        [T('Playlist: '), T(f'{current_playlist}', key='Current Playlist'), P()],
+        [T('Track: '), T(f'{current_track}', key='Current Track'), P()],
+        [B('Play/Pause'), B('Pick Track')],
+        [B('Setup', key='Menu Playlists', size=btn_size), P(), B('Assign', key='Menu Assignment', size=btn_size)],
+        [P(), T('~~~PUSH BUTTONS BELOW TO CHANGE MOOD~~~'), P()]
+    ]
 
-    if additional_rows := layout_playlists(get_moods(), max_elements):
-        for row in additional_rows:
-            layout.append(row)
+    layout = (layout_playlists(base, max_elements))
 
     mp.window = Window('Setup Playlists', layout, font = mp.font, size = mp.window_size, use_custom_titlebar = True)

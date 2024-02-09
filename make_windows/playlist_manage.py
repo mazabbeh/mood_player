@@ -11,14 +11,12 @@ from .window_utils import layout_playlists
 def mw_playlist_manage(mp: Muplayer, max_elements = 4):
     mp.window.close()
 
-    layout = [
+    base = [
         [P(), B('New Playlist'), B('Rename Playlist'), B('Delete Playlist'), P()],
         [P(), B('Back', key='Menu Main'), P()],
         [P(), T('Playlists'), P()]
     ]
 
-    if additional_rows := layout_playlists(get_moods(), max_elements):
-        for row in additional_rows:
-            layout.append(row)
+    layout = layout_playlists(base, max_elements)
 
     mp.window = Window('Setup Playlists', layout, font = mp.font, size = mp.window_size, use_custom_titlebar = True)
